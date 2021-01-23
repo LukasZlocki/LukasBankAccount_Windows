@@ -57,8 +57,11 @@ class IoAdapter:
         db_file.close()
         print("... Accounts list updated to file.")
 
+        # Set data to class field
+        self.__Accounts_List = accounts_list
+
 
     # ---- GETTERS ----
-    
+
     def getDataBase(self):
         return self.__Accounts_List
