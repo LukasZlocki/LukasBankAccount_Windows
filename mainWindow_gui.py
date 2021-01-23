@@ -11,7 +11,7 @@ import DeleteWindow_gui as deleteWindow
 class MainWindowGUI:
     def __init__(self, mainWindow):
         # Create the main window 
-        self.mainWindow = mainWindow
+        self.mainWindow = mainWindow 
         self.mainWindow.geometry("150x220")
         self.mainWindow.title("Lucas Bank Account - MENU")
 
