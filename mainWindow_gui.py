@@ -4,7 +4,7 @@
 
 import tkinter
 
-#import gui_deleteWindow as deleteWindow
+import DeleteWindow_gui as deleteWindow
 
 
 
@@ -12,7 +12,7 @@ class MainWindowGUI:
     def __init__(self, mainWindow):
         # Create the main window 
         self.mainWindow = mainWindow
-        self.mainWindow.geometry("150x400")
+        self.mainWindow.geometry("150x220")
         self.mainWindow.title("Lucas Bank Account - MENU")
 
         databaseRecords = 0
@@ -62,5 +62,5 @@ class MainWindowGUI:
 
     def Delete_command(self):
             self.newWindow = tkinter.Tk()
-            self.app = deleteWindow.deleteGUI(self.newWindow)
+            self.app = deleteWindow.DeleteWindowGUI(self.newWindow)
 
