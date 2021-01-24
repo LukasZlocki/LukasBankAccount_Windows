@@ -5,6 +5,7 @@
 import tkinter
 
 import DeleteWindow_gui as deleteWindow
+import ListWindow as listWindow
 
 
 
@@ -39,7 +40,7 @@ class MainWindowGUI:
         # Create withdraw_button and lebel with buttons' decription
         self.withdraw_button = tkinter.Button(self.menu_frame, text = "Withdraw", width = 8)
         # Create withdraw_button and lebel with buttons' decription
-        self.list_button = tkinter.Button(self.menu_frame, text = "List", width = 8)
+        self.list_button = tkinter.Button(self.menu_frame, text = "List", width = 8, command = self.List_command)
         # Create exit_button and label with buttons' description
         self.exit_button = tkinter.Button(self.menu_frame, text = "Exit", width = 8, command = self.mainWindow.destroy)
 
@@ -64,3 +65,6 @@ class MainWindowGUI:
             self.newWindow = tkinter.Tk()
             self.app = deleteWindow.DeleteWindowGUI(self.newWindow)
 
+    def List_command(self):
+        self.newWindow = tkinter.Tk()
+        self.app = listWindow.ListWindowGUI(self.newWindow)
