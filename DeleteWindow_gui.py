@@ -46,10 +46,9 @@ class DeleteWindowGUI:
 
 
     def deleteProcedure(self, accountNumber):      
-        # loading data base
-        db_adapter.dbAdapter.LoadDb(self)
-        #deleting account form data base
+        # Deleting account form data base
         db_adapter.dbAdapter.deleteAccountFromDatabase(self, accountNumber)
+ 
         
 
 
