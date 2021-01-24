@@ -8,6 +8,7 @@ import bankaccount_STANDARD
 import bankaccount_COMPANY
 import bankaccount_INT
 
+
 # Data base adapter
 class dbAdapter:
     def __init__(self):
@@ -18,7 +19,7 @@ class dbAdapter:
     def deleteAccountFromDatabase(self, account_number):
         print("-- Delete account --")
         # get list with bank accounts
-        accounts_list = Io_adapter.getDataBase()
+        accounts_list = Io_adapter.IoAdapter.getDataBase(self)
         _account_found = False
         _account_deleted = 0
         id = 0
@@ -27,7 +28,7 @@ class dbAdapter:
                 account.close(accounts_list, id)
                 _account_found = True
                 # Saving updated data
-               Io_adapter.IoAdapter.saveDataToDatabase(accounts_list)        
+                Io_adapter.IoAdapter.saveDataToDatabase(self, accounts_list)        
             else:
                 id = id +1
         if _account_found == False:
