@@ -9,11 +9,12 @@ import bankaccount_COMPANY
 import bankaccount_INT
 
 
+
 # Data base adapter
 class dbAdapter:
     def __init__(self):
-        self.__Accounts_List = []
-    
+        self.__Accounts_List = Io_adapter.IoAdapter.loadDataFromDatabase(self)
+          
     # --- DELETE ACCOUNT ---
     # Delete account function with withdraw all money
     def deleteAccountFromDatabase(self, account_number):
@@ -34,5 +35,14 @@ class dbAdapter:
         if _account_found == False:
             print("No account number " + str(account_number) + " found.")               
 
+    # ---- GETTERS ---
 
+    # Returns bankaccount object by position in list
+    def getRecordByPossitionInList(self,possitionInList):
+        accountData = self.__Accounts_List[possitionInList]
+        return accountData
 
+    # Returns records quantity
+    def getRecordsNumber(self):
+        recordsNumber = len(self.__Accounts_List)
+        return recordsNumber

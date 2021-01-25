@@ -7,6 +7,9 @@ import tkinter
 import DeleteWindow_gui as deleteWindow
 import ListWindow as listWindow
 
+import db_adapter
+
+dbRecords = 0 
 
 
 class MainWindowGUI:
@@ -16,7 +19,11 @@ class MainWindowGUI:
         self.mainWindow.geometry("150x220")
         self.mainWindow.title("Lucas Bank Account - MENU")
 
-        databaseRecords = 0
+        # Initialize global adapter
+        self.AdapterDb = db_adapter.dbAdapter()
+        # Get records quantity in db
+        global dbRecords      
+        dbRecords = self.AdapterDb.getRecordsNumber()
 
 
         # Creating frames
@@ -25,7 +32,7 @@ class MainWindowGUI:
 
         # ---------------- L A B E L S ----------------
         # Create Label with description
-        self.records_label = tkinter.Label(self.menu_frame, text = 'Records in database : ' + str(databaseRecords))
+        self.records_label = tkinter.Label(self.menu_frame, text = 'Records in database : ' + str(dbRecords))
         # Create Label with description
         self.desc_label = tkinter.Label(self.menu_frame, text = 'Choose your function :')
         
