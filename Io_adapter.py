@@ -5,8 +5,10 @@ import pickle
 
 accounts_list = []
 
+
 # Data base adapter
 class IoAdapter:
+
 
     def loadDataFromDatabase(self):
         __FILENAME = 'accountDb.dat'
@@ -61,7 +63,7 @@ class IoAdapter:
 
     def getDataBase(self):
         global accounts_list
-        # Load fresh data base to list
-        self.loadDataFromDatabase()
+        # Load fresh data base to list -- ale wyglada ze to jest nie potrzebne , zaciaga z global 
+        #accounts_list = self.loadDataFromDatabase()
         # Return list with accounts
         return accounts_list

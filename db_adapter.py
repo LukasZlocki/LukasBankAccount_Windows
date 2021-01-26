@@ -25,7 +25,7 @@ class dbAdapter:
         _account_deleted = 0
         id = 0
         for account in accounts_list: 
-            if account.get_accountNb() == account_number:
+            if account.get_accountNb() == int(account_number):
                 account.close(accounts_list, id)
                 _account_found = True
                 # Saving updated data
