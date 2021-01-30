@@ -6,6 +6,7 @@ import tkinter
 
 import DeleteWindow_gui as deleteWindow
 import ListWindow as listWindow
+import CreateWindow as createWindow
 
 import db_adapter
 
@@ -39,7 +40,7 @@ class MainWindowGUI:
 
         # ---------------- B U T T O N S ----------------
         # Create create_button and lebel with buttons' decription
-        self.create_button = tkinter.Button(self.menu_frame, text = "Create", width = 8)
+        self.create_button = tkinter.Button(self.menu_frame, text = "Create", width = 8, command = self.Create_command)
         # Create delete_button and lebel with buttons' decription
         self.delete_button = tkinter.Button(self.menu_frame, text = "Delete", width = 8, command = self.Delete_command)
         # Create deposit_button and lebel with buttons' decription
@@ -75,3 +76,7 @@ class MainWindowGUI:
     def List_command(self):
         self.newWindow = tkinter.Tk()
         self.app = listWindow.ListWindowGUI(self.newWindow)
+
+    def Create_command(self):
+        self.newWindow = tkinter.Tk()
+        self.app = createWindow.CreateWindowGUI(self.newWindow)

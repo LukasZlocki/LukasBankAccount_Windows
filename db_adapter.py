@@ -14,7 +14,33 @@ import bankaccount_INT
 class dbAdapter:
     def __init__(self):
         self.__Accounts_List = Io_adapter.IoAdapter.loadDataFromDatabase(self)
-          
+
+        global Acc_List
+        Acc_List = Io_adapter.IoAdapter.loadDataFromDatabase(self) 
+
+
+    # --- CREATE ACCOUNT ---   
+    def createAccount(self, accType, accNb, accName, accBal, accInit):       
+        if accType == 'CO':
+            # Create an COMPANY account object
+            newAccount = bankaccount_COMPANY.BankAccount_COMPANY(accBal, accName, accNb, accInit) 
+        if accType  == 'INT':
+            # Create an INTERNATIONAL account object
+            newAccount = bankaccount_INT.BankAccount_INT(accBal, accName, accNb, accInit) 
+        if accType  == 'ST':
+            # Create an STANDARD account object
+            newAccount = bankaccount_STANDARD.BankAccount_STANDARD(accBal, accName, accNb, accInit) 
+
+        # Add object to list of accounts
+        #self.__Accounts_List.append(newAccount)
+        Acc_List.append(newAccount)
+        print("... Account added to list.")
+
+        # Save accounts list to file
+        Io_adapter.IoAdapter.saveDataToDatabase(self, Acc_List)
+
+
+
     # --- DELETE ACCOUNT ---
     # Delete account function with withdraw all money
     def deleteAccountFromDatabase(self, account_number):
@@ -35,6 +61,7 @@ class dbAdapter:
         if _account_found == False:
             print("No account number " + str(account_number) + " found.")               
 
+ 
     # ---- GETTERS ---
 
     # Returns bankaccount object by position in list
