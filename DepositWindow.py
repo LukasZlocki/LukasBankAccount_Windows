@@ -29,7 +29,7 @@ class DepositWindowGUI:
             global account
             accNb = self.user_entry.get()
             account = adapter.getAccountDataByAccountNumber(accNb)
-            self.label_presentBalance.config(text = 'Balance : ' + account.get_balance())
+            self.label_presentBalance.config(text = 'Balance : ' + str(account.get_balance()))
 
         def depositSend_clicked():
             global account
