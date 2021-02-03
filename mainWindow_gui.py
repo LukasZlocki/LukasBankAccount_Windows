@@ -7,6 +7,7 @@ import tkinter
 import DeleteWindow_gui as deleteWindow
 import ListWindow as listWindow
 import CreateWindow as createWindow
+import DepositWindow as depositWindow
 
 import db_adapter
 
@@ -44,7 +45,7 @@ class MainWindowGUI:
         # Create delete_button and lebel with buttons' decription
         self.delete_button = tkinter.Button(self.menu_frame, text = "Delete", width = 8, command = self.Delete_command)
         # Create deposit_button and lebel with buttons' decription
-        self.deposit_button = tkinter.Button(self.menu_frame, text = "Deposit", width = 8)
+        self.deposit_button = tkinter.Button(self.menu_frame, text = "Deposit", width = 8, command = self.Deposit_command)
         # Create withdraw_button and lebel with buttons' decription
         self.withdraw_button = tkinter.Button(self.menu_frame, text = "Withdraw", width = 8)
         # Create withdraw_button and lebel with buttons' decription
@@ -80,3 +81,7 @@ class MainWindowGUI:
     def Create_command(self):
         self.newWindow = tkinter.Tk()
         self.app = createWindow.CreateWindowGUI(self.newWindow)
+
+    def Deposit_command(self):
+        self.newWindow = tkinter.Tk()
+        self.app = depositWindow.DepositWindowGUI(self.newWindow)

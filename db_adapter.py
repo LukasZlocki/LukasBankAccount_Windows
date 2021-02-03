@@ -61,10 +61,26 @@ class dbAdapter:
         if _account_found == False:
             print("No account number " + str(account_number) + " found.")               
 
- 
+    # Update account database by account object
+    def updateDatabase(self, account):
+        _acc_list = self.__Accounts_List
+        for acc in _acc_list:
+            if acc.get_accountNb() == account.get_accountNb():
+                # updating account list
+                acc.set_balance(account.get_balance())
+        # updating database
+        Io_adapter.IoAdapter.saveDataToDatabase(self, _acc_list)
+
     # ---- GETTERS ---
 
-    # Returns bankaccount object by position in list
+    # returns bankaccount object by account number
+    def getAccountDataByAccountNumber(self, accNumber):
+        for account in self.__Accounts_List:
+            if account.get_accountNb() == accNumber:
+                return account
+
+
+    # Returns bankaccount object object by position in list
     def getRecordByPossitionInList(self,possitionInList):
         accountData = self.__Accounts_List[possitionInList]
         return accountData
