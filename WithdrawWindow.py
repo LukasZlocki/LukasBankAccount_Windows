@@ -10,10 +10,13 @@ class WithdrawWindowGUI:
     def __init__(self, withdrawWindow):
         # Create the delete window 
         self.withdrawWindow = withdrawWindow
-        self.withdrawWindow.geometry("300x200")
-        self.withdrawWindow.title("Lucas Bank Account - Withdraw")
+        self.withdrawWindow.geometry("260x150")
+        self.withdrawWindow.title("Withdraw")
 
         self.adapterDb = db_adapter.dbAdapter()
+
+        withdrawWindow.resizable(0,0)
+
 
         global adapter
         global account
@@ -50,6 +53,7 @@ class WithdrawWindowGUI:
         self.wdrlabel1_frame.grid(row = 2, column = 0)
         self.wdrLabel2_frame.grid(row = 3, column = 0)
         self.wdrButton_frame.grid(row = 3, column = 1)
+
 
         # ---------------- L A B E L S ----------------
         # Create Labels with description

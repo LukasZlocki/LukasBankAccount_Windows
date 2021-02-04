@@ -22,6 +22,8 @@ class MainWindowGUI:
         self.mainWindow.geometry("150x220")
         self.mainWindow.title("Lucas Bank Account - MENU")
 
+        mainWindow.resizable(0,0)
+
         # Initialize global adapter
         self.AdapterDb = db_adapter.dbAdapter()
         # Get records quantity in db
@@ -72,8 +74,8 @@ class MainWindowGUI:
         tkinter.mainloop()
 
     def Delete_command(self):
-            self.newWindow = tkinter.Tk()
-            self.app = deleteWindow.DeleteWindowGUI(self.newWindow)
+        self.newWindow = tkinter.Tk()
+        self.app = deleteWindow.DeleteWindowGUI(self.newWindow)           
 
     def List_command(self):
         self.newWindow = tkinter.Tk()
@@ -84,8 +86,10 @@ class MainWindowGUI:
         self.app = createWindow.CreateWindowGUI(self.newWindow)
 
     def Deposit_command(self):
+        self.mainWindow.destroy
         self.newWindow = tkinter.Tk()
         self.app = depositWindow.DepositWindowGUI(self.newWindow)
+
 
     def Withdraw_command(self):
         self.newWindow = tkinter.Tk()

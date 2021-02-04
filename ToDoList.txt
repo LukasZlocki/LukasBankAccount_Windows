@@ -1,0 +1,23 @@
+ToDo : 
+
++ usunac laczenie recordow w glownym oknie
++ komunikaty messagebox - patrz informacjr z klasy (np dodanie kasy do konta, withdraw, deposit, ...)
+
+
+
+In Progress :
+
+
+
+NiceToHave :
+- wlaczanie okna na srodku ekranu
+- wyczyscic kod z niepotrzebnych zmiennych
+
+
+
+
+
+**** D O N E ****
++ LISTA - ogarnac odliczanie listy , przewijanie listy
++ przewymiarowac okna tak by layout wladnie ywgladal
+- usunac max powiekszenie okna

@@ -6,13 +6,17 @@ import tkinter
 import db_adapter
 import bankaccount
 
+import mainWindow_gui as mainWindow
+
 class DepositWindowGUI:
     def __init__(self, depositWindow):
         # Create the delete window 
         self.depositWindow = depositWindow
-        self.depositWindow.geometry("300x200")
-        self.depositWindow.title("Lucas Bank Account - Deposit")
+        self.depositWindow.geometry("260x150")
+        self.depositWindow.title("Deposit")
         self.accounts_lists = []
+
+        depositWindow.resizable(0,0)
 
         self.adapterDb = db_adapter.dbAdapter()
 
@@ -38,6 +42,13 @@ class DepositWindowGUI:
             newBalance = presentBalance + userBalance
             account.set_balance(newBalance)
             adapter.updateDatabase(account)
+
+            self.depositWindow.destroy
+            
+            self.newWindow = tkinter.Tk()
+            self.app = mainWindow.MainWindowGUI(self.newWindow)
+
+
 
 
         # ---------------- F R A M E S ----------------

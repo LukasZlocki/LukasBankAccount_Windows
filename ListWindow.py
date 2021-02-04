@@ -19,7 +19,9 @@ class ListWindowGUI():
         # Create the list window 
         self.listWindow = listWindow
         self.listWindow.geometry("300x200")
-        self.listWindow.title("Lucas Bank Account - List")
+        self.listWindow.title("List")
+
+        listWindow.resizable(0,0)
         
         # Initialize global adapter
         self.AdapterDb = db_adapter.dbAdapter()

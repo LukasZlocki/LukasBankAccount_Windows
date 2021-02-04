@@ -18,13 +18,11 @@ class CreateWindowGUI:
     def __init__(self, createWindow):
         # Create the delete window 
         self.createWindow = createWindow
-        self.createWindow.geometry("400x400")
-        self.createWindow.title("Lucas Bank Account - Create")
+        self.createWindow.geometry("300x150")
+        self.createWindow.title("Create")
         self.__dbAdapter = db_adapter.dbAdapter
 
-        #dropListValue = tkinter.StringVar(createWindow)
-        #dropListValue.set("Standard") # default value
-
+        createWindow.resizable(0,0)
 
 
         # ---- Function definition ----
@@ -41,8 +39,7 @@ class CreateWindowGUI:
             createWindow.destroy()
 
 
-
-
+        # ---------------- F R A M E S ----------------
         # Creating frames
         self.labelLeft_frame = tkinter.Frame(self.createWindow)
         self.labelRight_frame = tkinter.Frame(self.createWindow)

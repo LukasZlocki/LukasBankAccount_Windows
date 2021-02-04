@@ -1,0 +1,15 @@
+# Projekt finalny - termin realiacji do 14.02.2021 (do końca dnia). W przypadku opóźnienia się - prośba o informację.
+# W oparciu o class BankAccount (należy zastąpić class Automobile - clas BankAccount)
+# Pola (min) potrzebne: 
+#   - balance (saldo rachunku) pole typu numeric (float)
+#   - name (imię i nazwisko w przypadku osób fizycznych lub nazwa firmy)
+#   - accnt_nr (numer rachunku)
+#   - typ (typ rachunku: dla osób fizycznych, firm czy os. fizyczne międzynarodowe)
+#   - settery i gettery dla tych pól
+#   - metoda __str__
+# nazwy subclass (opisane w przykładowym historycznym projekcie w class materials)
+# nie dotyczy Was rozpoznawanie daty.
+# Projekt na "5" - powinien zawierać GUI w oparciu o tkinter lub inną bibliotekę
+# Dla chętnych dodać canvas - https://www.geeksforgeeks.org/python-tkinter-canvas-widget/ (np logo Banku)
+# Projekt na "4" - w oparciu o tryb tekstowy (bez tkinter GUI)
+# Grupy możliwe - max. 3 osoby w grupie.

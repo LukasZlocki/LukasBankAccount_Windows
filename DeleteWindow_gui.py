@@ -10,9 +10,11 @@ class DeleteWindowGUI:
     def __init__(self, deleteWindow):
         # Create the delete window 
         self.deleteWindow = deleteWindow
-        self.deleteWindow.geometry("300x200")
-        self.deleteWindow.title("Lucas Bank Account - Delete")
+        self.deleteWindow.geometry("230x80")
+        self.deleteWindow.title("Delete")
         self.accounts_lists = []
+
+        deleteWindow.resizable(0,0)
 
         # Initialize global adapter
         self.AdapterDb = db_adapter.dbAdapter()
