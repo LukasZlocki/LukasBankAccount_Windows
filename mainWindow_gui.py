@@ -19,8 +19,8 @@ class MainWindowGUI:
     def __init__(self, mainWindow):
         # Create the main window 
         self.mainWindow = mainWindow 
-        self.mainWindow.geometry("150x220")
-        self.mainWindow.title("Lucas Bank Account - MENU")
+        self.mainWindow.geometry("150x200")
+        self.mainWindow.title("MENU")
 
         mainWindow.resizable(0,0)
 
@@ -37,7 +37,7 @@ class MainWindowGUI:
 
         # ---------------- L A B E L S ----------------
         # Create Label with description
-        self.records_label = tkinter.Label(self.menu_frame, text = 'Records in database : ' + str(dbRecords))
+        #self.records_label = tkinter.Label(self.menu_frame, text = 'Records in database : ' + str(dbRecords))
         # Create Label with description
         self.desc_label = tkinter.Label(self.menu_frame, text = 'Choose your function :')
         
@@ -58,7 +58,7 @@ class MainWindowGUI:
 
 
         # Pack objects
-        self.records_label.pack(side = 'bottom')
+        #self.records_label.pack(side = 'bottom')
         self.desc_label.pack(side = 'top')
         self.create_button.pack(side = 'top')
         self.delete_button.pack(side = 'top')
