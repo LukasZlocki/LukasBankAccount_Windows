@@ -28,30 +28,49 @@ class ListWindowGUI():
         # Get records quantity in db
         dbRecords = self.AdapterDb.getRecordsNumber()
 
+        # position in list 
+        global dbPosition
+        dbPosition = 0
+        # position seen by user 
+        global userPossition
+        userPossition = 1
+
         # ---- Function definition ----
         def forward_clicked(): 
             global dbPosition
             global dbRecords
-            beforePos = dbPosition
-            dbPosition = beforePos + 1 
-            if dbPosition > dbRecords:
-                dbPosition = beforePos - 1
+            global userPossition
+    
+            _beforeDbPos = dbPosition
+            _beforeUserPossition = userPossition
+
+            dbPosition = _beforeDbPos + 1 
+            userPossition = _beforeUserPossition + 1
+            if dbPosition >= dbRecords:
+                dbPosition = _beforeDbPos
+                userPossition = _beforeUserPossition
             # Get record by position index in db
             account = self.AdapterDb.getRecordByPossitionInList(dbPosition)
             # Refresh labels with account data
-            refreshLabels(account, dbPosition, dbRecords)
+            refreshLabels(account, userPossition, dbRecords)
 
         def backward_clicked():
             global dbPosition
             global dbRecords
-            beforePos = dbPosition
-            dbPosition = beforePos - 1
+            global userPossition
+
+            _beforeDbPos = dbPosition
+            _beforeUserPossition = userPossition
+
+            dbPosition = _beforeDbPos - 1
+            userPossition = _beforeUserPossition - 1
             if dbPosition <= -1:
                 dbPosition = 0
+                userPossition = 1
             # Get record by position index in db
             account = self.AdapterDb.getRecordByPossitionInList(dbPosition)
             # Refresh labels with account data
-            refreshLabels(account, dbPosition, dbRecords)
+            refreshLabels(account, userPossition, dbRecords)
 
         def refreshLabels(account, position, records):
             self.db_label1.config(text = account.get_accountNb())
@@ -108,6 +127,9 @@ class ListWindowGUI():
         self.db_label4.pack(side = 'top')
         self.counter_label.pack(side = 'top')
         self.exit_button.pack(side = 'top')
+
+        startingAccount = self.AdapterDb.getRecordByPossitionInList(0)
+        refreshLabels(startingAccount, userPossition, dbRecords)
 
         # Enter the tkinter main loop.
         tkinter.mainloop()
