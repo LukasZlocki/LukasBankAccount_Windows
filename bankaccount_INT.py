@@ -23,4 +23,6 @@ class BankAccount_INT(bankaccount.BankAccount):
     def get_acctype(self):
         return self.__acctype
 
+
+
  

@@ -6,6 +6,8 @@ import tkinter
 import db_adapter
 import bankaccount
 
+import messageWindow
+
 class WithdrawWindowGUI:
     def __init__(self, withdrawWindow):
         # Create the delete window 
@@ -29,12 +31,20 @@ class WithdrawWindowGUI:
             global account
             accNb = self.user_entry.get()
             account = adapter.getAccountDataByAccountNumber(accNb)
+            # Logging : account found or not
+            msg = adapter.getLastLog()
+            messageWindow.ShowMessage.message(self, msg)
+            # Label update
             self.label_presentBalance.config(text = 'Balance : ' + str(account.get_balance()))
 
         def withdrawSend_clicked():
             global account
             userWithdraw = float(self.userBal_entry.get())
             account.withdraw(userWithdraw)
+            # ToDo : get log here !! covid restriction 
+            # Logging : Covid19 restriction logs
+            msg = account.get_classLog()
+            messageWindow.ShowMessage.message(self, msg)
             adapter.updateDatabase(account)
 
 

@@ -19,6 +19,7 @@ class BankAccount_COMPANY(bankaccount.BankAccount):
         # init date attribute
         self.__initdate = initdate
         self.__acctype = "Company bank account"
+        self.__Log = " "
 
 
 
@@ -33,18 +34,26 @@ class BankAccount_COMPANY(bankaccount.BankAccount):
     def withdraw(self, amount):
         if amount > 1000 :
             print("Too large amount of money. Withdraw max 1000 pln")
+            self.__Log = "Too large amount of money. Withdraw max 1000 pln"
         else :
             if self.get_balance() >= amount:
                 new_balans = self.get_balance() - amount
                 self.set_balance(new_balans)
                 print("... Amount withdrawn.")
+                self.__Log = "... Amount withdrawn."
 
             else:
                 print('Error: Insufficient funds')
+                self.__Log = "Error: Insufficient funds"
 
     # The close method is closing account 
     # (Overrided) Covid19 rule : company account not allowed to close
     def close(self, accounts_list, id):
         print('Deleting company account not allowed')
+        self.__Log = "Deleting company account not allowed"
 
+    # The classLog method is returning class log. 
+    # (Overrided) due to different Covid19 rules
+    def get_classLog(self):
+        return self.__Log
        

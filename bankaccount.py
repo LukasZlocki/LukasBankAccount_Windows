@@ -16,6 +16,7 @@ class BankAccount:
         self.__name = na
         self.__acct_nb = acctnb
         self.__acctype = "Regular bank account"
+        self.__Log = " "
 
 
     # The deposit method makes a deposit into the
@@ -29,8 +30,10 @@ class BankAccount:
         if self.__balance >= amount:
             self.__balance -= amount
             print("... Amount withdrawn.")
+            self.__Log = "... Amount withdrawn."
         else:
             print('Error: Insufficient funds')
+            self.__Log = "Error: Insufficient funds"
 
 
     # The close method is closing account by
@@ -68,6 +71,9 @@ class BankAccount:
     def get_acctype(self):
         return self.__acctype
     
+    # returns classLog
+    def get_classLog(self):
+        return self.__Log
 
     # SETTERS
 
