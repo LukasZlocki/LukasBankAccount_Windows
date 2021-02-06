@@ -14,7 +14,7 @@ import bankaccount_INT
 class dbAdapter:
     def __init__(self):
         self.__Accounts_List = Io_adapter.IoAdapter.loadDataFromDatabase(self)
-        self.__Log = " "
+        self.__Log = "1234 "
 
         global Acc_List
         Acc_List = Io_adapter.IoAdapter.loadDataFromDatabase(self) 
@@ -30,9 +30,11 @@ class dbAdapter:
         if accType  == 'INT':
             # Create an INTERNATIONAL account object
             newAccount = bankaccount_INT.BankAccount_INT(accBal, accName, accNb, accInit) 
+            self.__Log = newAccount.get_classLog()
         if accType  == 'ST':
             # Create an STANDARD account object
             newAccount = bankaccount_STANDARD.BankAccount_STANDARD(accBal, accName, accNb, accInit) 
+            self.__Log = newAccount.get_classLog()
 
         # Add object to list of accounts
         #self.__Accounts_List.append(newAccount)
@@ -41,8 +43,9 @@ class dbAdapter:
         
         # Save accounts list to file
         Io_adapter.IoAdapter.saveDataToDatabase(self, Acc_List)
-        # Log - account foun
-        self.__Log = self.__Log + "\nAccount " + str(accNb) + " added to database"    
+        # Log - account found
+        oldLog = self.__Log
+        self.__Log = oldLog + "\nAccount " + str(accNb) + " added to database"    
 
 
     # --- DELETE ACCOUNT ---

@@ -47,6 +47,7 @@ class WithdrawWindowGUI:
             msg = account.get_classLog()
             messageWindow.ShowMessage.message(self, msg)
             adapter.updateDatabase(account)
+            withdrawWindow.destroy
 
 
         # ---------------- F R A M E S ----------------
