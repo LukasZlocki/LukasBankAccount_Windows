@@ -1,6 +1,8 @@
 # Banking task by Lukasz Zlocki / 76103
 # zlocki_76103@cloud.wsb.wroclaw.pl
 
+# Purpose of the class is to handle directly with db, main tasks like LOAD database, SAVE database, return database as a list
+
 import pickle
 
 accounts_list = []

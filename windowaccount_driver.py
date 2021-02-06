@@ -2,6 +2,8 @@
 # tkinter base Windows version
 # zlocki_76103@cloud.wsb.wroclaw.pl
 
+# This is driver for GUI bank account version
+
 import mainWindow_gui as win
 import tkinter as tk
 
@@ -21,10 +23,7 @@ def main():
 
     app = win.MainWindowGUI(root, posR, posD)
     root.mainloop() 
-
-
-
-
+    
 
 # Call main function
 if __name__ == "__main__":

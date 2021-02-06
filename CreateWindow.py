@@ -6,10 +6,7 @@ import tkinter
 import db_adapter
 import bankaccount
 from datetime import date
-#import bankaccount
-#import bankaccount_STANDARD
-#import bankaccount_COMPANY
-#import bankaccount_INT
+
 
 import messageWindow
 

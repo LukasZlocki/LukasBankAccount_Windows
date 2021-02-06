@@ -1,6 +1,8 @@
 # Banking task by Lukasz Zlocki / 76103
 # zlocki_76103@cloud.wsb.wroclaw.pl
 
+# Purpose of the class is to handle with logic for main tasks (create, delete, update, get) and involve IoAdapter to maintain updates on database.
+
 import Io_adapter
 
 import bankaccount

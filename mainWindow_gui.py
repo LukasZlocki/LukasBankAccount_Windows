@@ -42,7 +42,7 @@ class MainWindowGUI:
         dbRecords = self.AdapterDb.getRecordsNumber()
 
 
-        # Creating frames
+        # ---------------- F R A M E S ----------------
         self.menu_frame = tkinter.Frame()
 
 

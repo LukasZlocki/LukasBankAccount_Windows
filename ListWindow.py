@@ -83,7 +83,7 @@ class ListWindowGUI():
             self.counter_label.config(text = 'Records in database ' + str(position) + ' / ' + str(records))
 
 
-        # Creating frames
+        # ---------------- F R A M E S ----------------
         self.buttonLeft_frame = tkinter.Frame(self.listWindow)
         self.buttonRight_frame = tkinter.Frame(self.listWindow)
         self.labelLeft_frame = tkinter.Frame(self.listWindow)
