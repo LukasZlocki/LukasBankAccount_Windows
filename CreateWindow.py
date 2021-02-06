@@ -18,7 +18,7 @@ class CreateWindowGUI:
         # Create the delete window 
         self.createWindow = createWindow
         self.createWindow.geometry("300x150")
-        self.createWindow.title("Create")
+        self.createWindow.title("Create")     
         self.__dbAdapter = db_adapter.dbAdapter
 
         createWindow.geometry("+{}+{}".format(pR, pD))

@@ -4,7 +4,7 @@ ToDo :
 
 
 In Progress :
-- wlaczanie okna na srodku ekranu
+
 
 
 
@@ -24,3 +24,4 @@ NiceToHave :
 + usunac laczenie recordow w glownym oknie
 - nie mozna usunac konta o danym numerze
 - Loggings implementation
+- wlaczanie okna na srodku ekranu

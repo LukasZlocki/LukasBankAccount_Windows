@@ -53,7 +53,7 @@ class DepositWindowGUI:
             msg = adapter.getLastLog()
             messageWindow.ShowMessage.message(self, msg)
 
-            self.depositWindow.destroy
+            depositWindow.destroy()
             
             #self.newWindow = tkinter.Tk()
             #self.app = mainWindow.MainWindowGUI(self.newWindow)
