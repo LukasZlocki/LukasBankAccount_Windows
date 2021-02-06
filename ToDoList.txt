@@ -1,17 +1,16 @@
 ToDo : 
 
-+ usunac laczenie recordow w glownym oknie
-+ komunikaty messagebox - patrz informacjr z klasy (np dodanie kasy do konta, withdraw, deposit, ...)
 
 
 
 In Progress :
-
+- nie mozna usunac konta o danym numerze
 
 
 NiceToHave :
 - wlaczanie okna na srodku ekranu
 - wyczyscic kod z niepotrzebnych zmiennych
++ komunikaty messagebox - patrz informacjr z klasy (np dodanie kasy do konta, withdraw, deposit, ...)
 
 
 
@@ -21,3 +20,4 @@ NiceToHave :
 + LISTA - ogarnac odliczanie listy , przewijanie listy
 + przewymiarowac okna tak by layout wladnie ywgladal
 - usunac max powiekszenie okna
++ usunac laczenie recordow w glownym oknie

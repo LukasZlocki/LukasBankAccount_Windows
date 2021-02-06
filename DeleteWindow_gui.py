@@ -24,6 +24,7 @@ class DeleteWindowGUI:
             accNb = self.user_entry.get()
             # Deleting account form data base
             self.AdapterDb.deleteAccountFromDatabase(accNb)
+            
             deleteWindow.destroy()
 
         # ---------------- F R A M E S ----------------

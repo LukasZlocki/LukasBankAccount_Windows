@@ -38,6 +38,7 @@ class BankAccount_COMPANY(bankaccount.BankAccount):
                 new_balans = self.get_balance() - amount
                 self.set_balance(new_balans)
                 print("... Amount withdrawn.")
+
             else:
                 print('Error: Insufficient funds')
 
@@ -45,4 +46,5 @@ class BankAccount_COMPANY(bankaccount.BankAccount):
     # (Overrided) Covid19 rule : company account not allowed to close
     def close(self, accounts_list, id):
         print('Deleting company account not allowed')
+
        

@@ -4,6 +4,7 @@
 
 import tkinter
 
+
 import DeleteWindow_gui as deleteWindow
 import ListWindow as listWindow
 import CreateWindow as createWindow
@@ -11,6 +12,8 @@ import DepositWindow as depositWindow
 import WithdrawWindow as withdrawWindow
 
 import db_adapter
+
+import messageWindow
 
 dbRecords = 0 
 
@@ -23,6 +26,8 @@ class MainWindowGUI:
         self.mainWindow.title("MENU")
 
         mainWindow.resizable(0,0)
+
+
 
         # Initialize global adapter
         self.AdapterDb = db_adapter.dbAdapter()

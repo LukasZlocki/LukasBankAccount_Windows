@@ -1,7 +1,6 @@
 # Banking task by Lukasz Zlocki / 76103
 # zlocki_76103@cloud.wsb.wroclaw.pl
 
-
 import bankaccount
 
 class BankAccount_STANDARD(bankaccount.BankAccount):
@@ -33,6 +32,8 @@ class BankAccount_STANDARD(bankaccount.BankAccount):
                 print("... Amount withdrawn.")
             else:
                 print('Error: Insufficient funds')
+
+                
             
             
 

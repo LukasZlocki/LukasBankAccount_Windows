@@ -6,6 +6,8 @@ import tkinter
 import db_adapter
 import bankaccount
 
+import messageWindow
+
 import mainWindow_gui as mainWindow
 
 class DepositWindowGUI:
@@ -33,7 +35,11 @@ class DepositWindowGUI:
             global account
             accNb = self.user_entry.get()
             account = adapter.getAccountDataByAccountNumber(accNb)
+            # Logging : account found or not
+            msg = adapter.getLastLog()
+            messageWindow.ShowMessage.message(self, msg)
             self.label_presentBalance.config(text = 'Balance : ' + str(account.get_balance()))
+
 
         def depositSend_clicked():
             global account
@@ -42,11 +48,14 @@ class DepositWindowGUI:
             newBalance = presentBalance + userBalance
             account.set_balance(newBalance)
             adapter.updateDatabase(account)
+            # Logging : account found or not
+            msg = adapter.getLastLog()
+            messageWindow.ShowMessage.message(self, msg)
 
             self.depositWindow.destroy
             
-            self.newWindow = tkinter.Tk()
-            self.app = mainWindow.MainWindowGUI(self.newWindow)
+            #self.newWindow = tkinter.Tk()
+            #self.app = mainWindow.MainWindowGUI(self.newWindow)
 
 
 

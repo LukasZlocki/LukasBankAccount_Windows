@@ -3,6 +3,7 @@
 
 # The BankAccount class simulates a bank account.
 
+
 class BankAccount:
 
     # The __init__ method accepts an argument for
@@ -15,6 +16,7 @@ class BankAccount:
         self.__name = na
         self.__acct_nb = acctnb
         self.__acctype = "Regular bank account"
+
 
     # The deposit method makes a deposit into the
     # account.
@@ -41,9 +43,8 @@ class BankAccount:
 
         # Removing account from account list
         accounts_list.pop(id)
-        print("... Account nb " + str(self.__acct_nb) + " deleted.")   
+        print("... Account nb " + str(self.__acct_nb) + " deleted.")
         
-
            
     # The print_all method returns all class fields
     def print__all(self):

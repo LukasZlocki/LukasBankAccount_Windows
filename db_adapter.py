@@ -14,9 +14,11 @@ import bankaccount_INT
 class dbAdapter:
     def __init__(self):
         self.__Accounts_List = Io_adapter.IoAdapter.loadDataFromDatabase(self)
+        self.__Log = " "
 
         global Acc_List
         Acc_List = Io_adapter.IoAdapter.loadDataFromDatabase(self) 
+
 
 
     # --- CREATE ACCOUNT ---   
@@ -35,6 +37,10 @@ class dbAdapter:
         #self.__Accounts_List.append(newAccount)
         Acc_List.append(newAccount)
         print("... Account added to list.")
+        
+        # Operation Messager
+        global OperationMessage
+        OperationMessage = "... Account added to list."
 
         # Save accounts list to file
         Io_adapter.IoAdapter.saveDataToDatabase(self, Acc_List)
@@ -51,15 +57,19 @@ class dbAdapter:
         _account_deleted = 0
         id = 0
         for account in accounts_list: 
-            if account.get_accountNb() == int(account_number):
+            if account.get_accountNb() == account_number:
                 account.close(accounts_list, id)
                 _account_found = True
                 # Saving updated data
-                Io_adapter.IoAdapter.saveDataToDatabase(self, accounts_list)        
+                Io_adapter.IoAdapter.saveDataToDatabase(self, accounts_list)     
+                # Log - account found
+                self.__Log = "Account number " + str(account_number) + " found."         
             else:
                 id = id +1
         if _account_found == False:
-            print("No account number " + str(account_number) + " found.")               
+            print("No account number " + str(account_number) + " found.")
+            # Log - account not found
+            self.__Log = "Account number " + str(account_number) + " not found."         
 
     # Update account database by account object
     def updateDatabase(self, account):
@@ -70,6 +80,7 @@ class dbAdapter:
                 acc.set_balance(account.get_balance())
         # updating database
         Io_adapter.IoAdapter.saveDataToDatabase(self, _acc_list)
+        self.__Log = "Balance and database updated"
 
     # ---- GETTERS ---
 
@@ -77,8 +88,11 @@ class dbAdapter:
     def getAccountDataByAccountNumber(self, accNumber):
         for account in self.__Accounts_List:
             if account.get_accountNb() == accNumber:
+                self.__Log = "Account " + accNumber + " found."
                 return account
-
+            else:
+                self.__Log = "No account " + accNumber + " found."
+                
 
     # Returns bankaccount object object by position in list
     def getRecordByPossitionInList(self,possitionInList):
@@ -89,3 +103,7 @@ class dbAdapter:
     def getRecordsNumber(self):
         recordsNumber = len(self.__Accounts_List)
         return recordsNumber
+
+    # Returns last log information
+    def getLastLog(self):
+        return self.__Log

@@ -10,7 +10,7 @@ def main():
 
     root = tk.Tk()
     app = win.MainWindowGUI(root)
-    root.mainloop()
+    root.mainloop() 
 
 
 
