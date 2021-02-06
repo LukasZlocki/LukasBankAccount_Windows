@@ -63,7 +63,7 @@ class dbAdapter:
                 # Saving updated data
                 Io_adapter.IoAdapter.saveDataToDatabase(self, accounts_list)     
                 # Log - account found
-                self.__Log = "Account number " + str(account_number) + " found."         
+                self.__Log = "Account number " + str(account_number) + " found and deleted."         
             else:
                 id = id +1
         if _account_found == False:

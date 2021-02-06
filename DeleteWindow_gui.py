@@ -6,6 +6,8 @@ import tkinter
 import db_adapter
 import bankaccount
 
+import messageWindow
+
 class DeleteWindowGUI:
     def __init__(self, deleteWindow):
         # Create the delete window 
@@ -24,6 +26,9 @@ class DeleteWindowGUI:
             accNb = self.user_entry.get()
             # Deleting account form data base
             self.AdapterDb.deleteAccountFromDatabase(accNb)
+             # Logging : Covid19 restriction logs
+            msg = self.AdapterDb.getLastLog()
+            messageWindow.ShowMessage.message(self, msg)
             
             deleteWindow.destroy()
 
