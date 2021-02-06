@@ -9,13 +9,14 @@ import bankaccount
 import messageWindow
 
 class DeleteWindowGUI:
-    def __init__(self, deleteWindow):
+    def __init__(self, deleteWindow, pR, pD):
         # Create the delete window 
         self.deleteWindow = deleteWindow
         self.deleteWindow.geometry("230x80")
         self.deleteWindow.title("Delete")
         self.accounts_lists = []
 
+        deleteWindow.geometry("+{}+{}".format(pR, pD))
         deleteWindow.resizable(0,0)
 
         # Initialize global adapter

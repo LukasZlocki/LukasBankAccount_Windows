@@ -3,25 +3,25 @@
 # zlocki_76103@cloud.wsb.wroclaw.pl
 
 import tkinter
-
 import db_adapter
 import bankaccount
-
 from datetime import date
+#import bankaccount
+#import bankaccount_STANDARD
+#import bankaccount_COMPANY
+#import bankaccount_INT
 
-import bankaccount
-import bankaccount_STANDARD
-import bankaccount_COMPANY
-import bankaccount_INT
+import messageWindow
 
 class CreateWindowGUI:
-    def __init__(self, createWindow):
+    def __init__(self, createWindow, pR, pD):
         # Create the delete window 
         self.createWindow = createWindow
         self.createWindow.geometry("300x150")
         self.createWindow.title("Create")
         self.__dbAdapter = db_adapter.dbAdapter
 
+        createWindow.geometry("+{}+{}".format(pR, pD))
         createWindow.resizable(0,0)
 
 
@@ -31,11 +31,14 @@ class CreateWindowGUI:
             accNb = self.db_entry1.get() 
             accType = self.db_entry2.get()  
             accName = self.db_entry3.get()  
-            accBal = self.db_entry4.get() 
+            accBal = float(self.db_entry4.get()) 
             
             accountInitdate = date.today()
 
             self.__dbAdapter.createAccount(self, accType, accNb, accName, accBal, accountInitdate)
+            # Logging : account added 
+            msg = self.__dbAdapter.getLastLog(self)
+            messageWindow.ShowMessage.message(self, msg)
             createWindow.destroy()
 
 

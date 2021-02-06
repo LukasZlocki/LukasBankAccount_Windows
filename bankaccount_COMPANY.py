@@ -8,20 +8,20 @@ class BankAccount_COMPANY(bankaccount.BankAccount):
     # init superclass bankaccount
     def __init__(self, bal, na, acctnb, initdate):
 
-        # Covid19 Rule : from 01.04.2019 +1 k PLN init loan for all COMPANY accounts.
-        covid19_loan_date = date(2019, 4, 1)
-        if initdate >= covid19_loan_date:
-            bal = bal + 5000
-
-        # init superclass
-        bankaccount.BankAccount.__init__(self, bal, na, acctnb)
-   
         # init date attribute
         self.__initdate = initdate
         self.__acctype = "Company bank account"
         self.__Log = " "
 
+        # Covid19 Rule : from 01.04.2019 +1 k PLN init loan for all COMPANY accounts.
+        covid19_loan_date = date(2019, 4, 1)
+        if initdate >= covid19_loan_date:
+            bal = bal + 5000
+            self.__Log = "Government support : 5 k pln."
 
+        # init superclass
+        bankaccount.BankAccount.__init__(self, bal, na, acctnb)
+   
 
     # -- Overrided methods --
 

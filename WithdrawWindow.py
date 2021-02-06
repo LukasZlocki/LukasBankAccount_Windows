@@ -9,7 +9,7 @@ import bankaccount
 import messageWindow
 
 class WithdrawWindowGUI:
-    def __init__(self, withdrawWindow):
+    def __init__(self, withdrawWindow, pR, pD):
         # Create the delete window 
         self.withdrawWindow = withdrawWindow
         self.withdrawWindow.geometry("260x150")
@@ -17,6 +17,7 @@ class WithdrawWindowGUI:
 
         self.adapterDb = db_adapter.dbAdapter()
 
+        withdrawWindow.geometry("+{}+{}".format(pR, pD))
         withdrawWindow.resizable(0,0)
 
 

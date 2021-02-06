@@ -15,12 +15,13 @@ dbPosition = 0
 dbRecords = 0 
 
 class ListWindowGUI():
-    def __init__(self, listWindow):
+    def __init__(self, listWindow, pR, pD):
         # Create the list window 
         self.listWindow = listWindow
         self.listWindow.geometry("300x200")
         self.listWindow.title("List")
 
+        listWindow.geometry("+{}+{}".format(pR, pD))
         listWindow.resizable(0,0)
         
         # Initialize global adapter

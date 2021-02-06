@@ -19,14 +19,20 @@ dbRecords = 0
 
 
 class MainWindowGUI:
-    def __init__(self, mainWindow):
+    def __init__(self, mainWindow, pR, pD):
         # Create the main window 
         self.mainWindow = mainWindow 
         self.mainWindow.geometry("150x200")
         self.mainWindow.title("MENU")
+        self.posR = pR
+        self.posD = pD
 
+        mainWindow.geometry("+{}+{}".format(pR, pD))
         mainWindow.resizable(0,0)
 
+        # changing main parameter to start up windows newxt to mainWindow
+        vectorR = 180
+        self.posR = self.posR + vectorR
 
 
         # Initialize global adapter
@@ -80,22 +86,24 @@ class MainWindowGUI:
 
     def Delete_command(self):
         self.newWindow = tkinter.Tk()
-        self.app = deleteWindow.DeleteWindowGUI(self.newWindow)           
+        self.app = deleteWindow.DeleteWindowGUI(self.newWindow, self.posR, self.posD)           
 
     def List_command(self):
         self.newWindow = tkinter.Tk()
-        self.app = listWindow.ListWindowGUI(self.newWindow)
+        self.app = listWindow.ListWindowGUI(self.newWindow, self.posR, self.posD)
 
     def Create_command(self):
         self.newWindow = tkinter.Tk()
-        self.app = createWindow.CreateWindowGUI(self.newWindow)
+        self.app = createWindow.CreateWindowGUI(self.newWindow, self.posR, self.posD)
 
     def Deposit_command(self):
         self.mainWindow.destroy
         self.newWindow = tkinter.Tk()
-        self.app = depositWindow.DepositWindowGUI(self.newWindow)
+        self.app = depositWindow.DepositWindowGUI(self.newWindow, self.posR, self.posD)
 
 
     def Withdraw_command(self):
         self.newWindow = tkinter.Tk()
-        self.app = withdrawWindow.WithdrawWindowGUI(self.newWindow)
+        self.app = withdrawWindow.WithdrawWindowGUI(self.newWindow, self.posR, self.posD)
+
+

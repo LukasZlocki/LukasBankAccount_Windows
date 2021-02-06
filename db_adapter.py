@@ -26,6 +26,7 @@ class dbAdapter:
         if accType == 'CO':
             # Create an COMPANY account object
             newAccount = bankaccount_COMPANY.BankAccount_COMPANY(accBal, accName, accNb, accInit) 
+            self.__Log = newAccount.get_classLog()
         if accType  == 'INT':
             # Create an INTERNATIONAL account object
             newAccount = bankaccount_INT.BankAccount_INT(accBal, accName, accNb, accInit) 
@@ -38,13 +39,10 @@ class dbAdapter:
         Acc_List.append(newAccount)
         print("... Account added to list.")
         
-        # Operation Messager
-        global OperationMessage
-        OperationMessage = "... Account added to list."
-
         # Save accounts list to file
         Io_adapter.IoAdapter.saveDataToDatabase(self, Acc_List)
-
+        # Log - account foun
+        self.__Log = self.__Log + "\nAccount " + str(accNb) + " added to database"    
 
 
     # --- DELETE ACCOUNT ---

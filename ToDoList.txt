@@ -4,11 +4,12 @@ ToDo :
 
 
 In Progress :
-- nie mozna usunac konta o danym numerze
+- wlaczanie okna na srodku ekranu
+
 
 
 NiceToHave :
-- wlaczanie okna na srodku ekranu
+
 - wyczyscic kod z niepotrzebnych zmiennych
 + komunikaty messagebox - patrz informacjr z klasy (np dodanie kasy do konta, withdraw, deposit, ...)
 
@@ -21,3 +22,5 @@ NiceToHave :
 + przewymiarowac okna tak by layout wladnie ywgladal
 - usunac max powiekszenie okna
 + usunac laczenie recordow w glownym oknie
+- nie mozna usunac konta o danym numerze
+- Loggings implementation

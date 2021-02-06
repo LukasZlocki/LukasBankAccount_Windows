@@ -11,13 +11,14 @@ import messageWindow
 import mainWindow_gui as mainWindow
 
 class DepositWindowGUI:
-    def __init__(self, depositWindow):
+    def __init__(self, depositWindow, pR, pD):
         # Create the delete window 
         self.depositWindow = depositWindow
         self.depositWindow.geometry("260x150")
         self.depositWindow.title("Deposit")
         self.accounts_lists = []
 
+        depositWindow.geometry("+{}+{}".format(pR, pD))
         depositWindow.resizable(0,0)
 
         self.adapterDb = db_adapter.dbAdapter()
